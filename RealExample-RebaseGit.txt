@@ -1,0 +1,236 @@
+[root@ip-10-0-1-162 samplerepo]# ls -lrt
+total 16
+-rw-r--r-- 1 root root   41 Nov 27 14:15 README.md
+-rw-r--r-- 1 root root 4606 Nov 27 14:15 sample.war
+-rw-r--r-- 1 root root   53 Nov 27 15:02 file1
+[root@ip-10-0-1-162 samplerepo]# git branch
+* master
+[root@ip-10-0-1-162 samplerepo]# git branch dev
+[root@ip-10-0-1-162 samplerepo]# git branch
+  dev
+* master
+[root@ip-10-0-1-162 samplerepo]# pwd
+/home/ec2-user/samplerepo
+[root@ip-10-0-1-162 samplerepo]# git checkout dev
+Switched to branch 'dev'
+[root@ip-10-0-1-162 samplerepo]# git branch
+* dev
+  master
+[root@ip-10-0-1-162 samplerepo]# ls -rlt
+total 16
+-rw-r--r-- 1 root root   41 Nov 27 14:15 README.md
+-rw-r--r-- 1 root root 4606 Nov 27 14:15 sample.war
+-rw-r--r-- 1 root root   53 Nov 27 15:02 file1
+[root@ip-10-0-1-162 samplerepo]# pwd
+/home/ec2-user/samplerepo
+[root@ip-10-0-1-162 samplerepo]# git status
+On branch dev
+nothing to commit, working tree clean
+[root@ip-10-0-1-162 samplerepo]# pwd
+/home/ec2-user/samplerepo
+[root@ip-10-0-1-162 samplerepo]# vi devfile-rebase.txt
+[root@ip-10-0-1-162 samplerepo]# git add .
+[root@ip-10-0-1-162 samplerepo]# git commit -m "checking rebase into master"
+[dev 9c54b59] checking rebase into master
+ 1 file changed, 1 insertion(+)
+ create mode 100644 devfile-rebase.txt
+[root@ip-10-0-1-162 samplerepo]# git log
+commit 9c54b5930d33af0f982ca1f7aa227753989ccf4d (HEAD -> dev)
+Author: KnowledgeShare <knowledgeshare99@gmail.com>
+Date:   Wed Nov 28 14:30:38 2018 +0000
+
+    checking rebase into master
+
+commit 3a3db4fad29ec37f3098a34193d6789bd276b329 (origin/master, origin/HEAD, master)
+Author: KnowledgeShare <knowledgeshare99@gmail.com>
+Date:   Tue Nov 27 15:02:37 2018 +0000
+
+    Revert "modified for using -soft HEAD - then revertig the commit ID"
+
+    This reverts commit 0006a65b4cc9a07317a621875e485d8b9b8419bd.
+
+commit 0006a65b4cc9a07317a621875e485d8b9b8419bd
+Author: KnowledgeShare <knowledgeshare99@gmail.com>
+Date:   Tue Nov 27 15:01:27 2018 +0000
+
+    modified for using -soft HEAD
+
+commit 7d45fe159b9a5d6df51e3a2336a28f6c7a14065e
+Author: KnowledgeShare <knowledgeshare99@gmail.com>
+Date:   Tue Nov 27 14:33:55 2018 +0000
+
+    adding commiting area 3rd time
+
+commit 87c8eda8f0d5e18e9e1cd2864e3f5a1bca6cdebc
+Author: knowledgeshare99 <32073408+knowledgeshare99@users.noreply.github.com>
+Date:   Sat Aug 11 16:53:45 2018 +0530
+
+    sample.war file adding for tomcat deploy
+
+    sample.war file adding for tomcat deploy
+
+commit 60a1031a3a8755feb333e3e8905bd74d0c123221
+Author: knowledgeshare99 <32073408+knowledgeshare99@users.noreply.github.com>
+Date:   Sat Oct 28 05:15:37 2017 -0500
+
+    this is first file
+
+    adding new file in github
+
+commit 9f5d418bb3f0fc0ca6a1c9e250ffee3f1eaa7467
+Author: knowledgeshare99 <32073408+knowledgeshare99@users.noreply.github.com>
+Date:   Sat Oct 28 05:13:30 2017 -0500
+
+    Initial commit
+[root@ip-10-0-1-162 samplerepo]# vi devfile-rebase.txt
+[root@ip-10-0-1-162 samplerepo]# git add .
+[root@ip-10-0-1-162 samplerepo]# git commit -m "added 2nd line into master"
+[dev 53a94e6] added 2nd line into master
+ 1 file changed, 2 insertions(+)
+[root@ip-10-0-1-162 samplerepo]# git status
+On branch dev
+nothing to commit, working tree clean
+[root@ip-10-0-1-162 samplerepo]# pwd
+/home/ec2-user/samplerepo
+[root@ip-10-0-1-162 samplerepo]# git branch
+* dev
+  master
+[root@ip-10-0-1-162 samplerepo]# pwd
+/home/ec2-user/samplerepo
+[root@ip-10-0-1-162 samplerepo]# ls -rlt
+total 20
+-rw-r--r-- 1 root root   41 Nov 27 14:15 README.md
+-rw-r--r-- 1 root root 4606 Nov 27 14:15 sample.war
+-rw-r--r-- 1 root root   53 Nov 27 15:02 file1
+-rw-r--r-- 1 root root   58 Nov 28 14:31 devfile-rebase.txt
+[root@ip-10-0-1-162 samplerepo]# cat devfile-rebase.txt
+checking for rebase to master
+
+adding 2nd line for rebase
+[root@ip-10-0-1-162 samplerepo]# git checkout master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+[root@ip-10-0-1-162 samplerepo]# cat dev^C
+[root@ip-10-0-1-162 samplerepo]# ls -rlt
+total 16
+-rw-r--r-- 1 root root   41 Nov 27 14:15 README.md
+-rw-r--r-- 1 root root 4606 Nov 27 14:15 sample.war
+-rw-r--r-- 1 root root   53 Nov 27 15:02 file1
+[root@ip-10-0-1-162 samplerepo]# pwd
+/home/ec2-user/samplerepo
+[root@ip-10-0-1-162 samplerepo]# pwd
+/home/ec2-user/samplerepo
+[root@ip-10-0-1-162 samplerepo]# git log
+commit 3a3db4fad29ec37f3098a34193d6789bd276b329 (HEAD -> master, origin/master, origin/HEAD)
+Author: KnowledgeShare <knowledgeshare99@gmail.com>
+Date:   Tue Nov 27 15:02:37 2018 +0000
+
+    Revert "modified for using -soft HEAD - then revertig the commit ID"
+
+    This reverts commit 0006a65b4cc9a07317a621875e485d8b9b8419bd.
+
+commit 0006a65b4cc9a07317a621875e485d8b9b8419bd
+Author: KnowledgeShare <knowledgeshare99@gmail.com>
+Date:   Tue Nov 27 15:01:27 2018 +0000
+
+    modified for using -soft HEAD
+
+commit 7d45fe159b9a5d6df51e3a2336a28f6c7a14065e
+Author: KnowledgeShare <knowledgeshare99@gmail.com>
+Date:   Tue Nov 27 14:33:55 2018 +0000
+
+    adding commiting area 3rd time
+
+commit 87c8eda8f0d5e18e9e1cd2864e3f5a1bca6cdebc
+Author: knowledgeshare99 <32073408+knowledgeshare99@users.noreply.github.com>
+Date:   Sat Aug 11 16:53:45 2018 +0530
+
+    sample.war file adding for tomcat deploy
+
+    sample.war file adding for tomcat deploy
+
+commit 60a1031a3a8755feb333e3e8905bd74d0c123221
+Author: knowledgeshare99 <32073408+knowledgeshare99@users.noreply.github.com>
+Date:   Sat Oct 28 05:15:37 2017 -0500
+
+    this is first file
+
+    adding new file in github
+
+commit 9f5d418bb3f0fc0ca6a1c9e250ffee3f1eaa7467
+Author: knowledgeshare99 <32073408+knowledgeshare99@users.noreply.github.com>
+Date:   Sat Oct 28 05:13:30 2017 -0500
+
+    Initial commit
+[root@ip-10-0-1-162 samplerepo]# git branch
+  dev
+* master
+[root@ip-10-0-1-162 samplerepo]# git rebase master dev
+Current branch dev is up to date.
+[root@ip-10-0-1-162 samplerepo]# pwd
+/home/ec2-user/samplerepo
+[root@ip-10-0-1-162 samplerepo]# ls -rlt
+total 20
+-rw-r--r-- 1 root root   41 Nov 27 14:15 README.md
+-rw-r--r-- 1 root root 4606 Nov 27 14:15 sample.war
+-rw-r--r-- 1 root root   53 Nov 27 15:02 file1
+-rw-r--r-- 1 root root   58 Nov 28 14:33 devfile-rebase.txt
+[root@ip-10-0-1-162 samplerepo]# pwd
+/home/ec2-user/samplerepo
+[root@ip-10-0-1-162 samplerepo]# pwd
+/home/ec2-user/samplerepo
+[root@ip-10-0-1-162 samplerepo]# git log
+commit 53a94e67d6270889419ad03d02cc5569d4fff982 (HEAD -> dev)
+Author: KnowledgeShare <knowledgeshare99@gmail.com>
+Date:   Wed Nov 28 14:31:30 2018 +0000
+
+    added 2nd line into master
+
+commit 9c54b5930d33af0f982ca1f7aa227753989ccf4d
+Author: KnowledgeShare <knowledgeshare99@gmail.com>
+Date:   Wed Nov 28 14:30:38 2018 +0000
+
+    checking rebase into master
+
+commit 3a3db4fad29ec37f3098a34193d6789bd276b329 (origin/master, origin/HEAD, master)
+Author: KnowledgeShare <knowledgeshare99@gmail.com>
+Date:   Tue Nov 27 15:02:37 2018 +0000
+
+    Revert "modified for using -soft HEAD - then revertig the commit ID"
+
+    This reverts commit 0006a65b4cc9a07317a621875e485d8b9b8419bd.
+
+commit 0006a65b4cc9a07317a621875e485d8b9b8419bd
+Author: KnowledgeShare <knowledgeshare99@gmail.com>
+Date:   Tue Nov 27 15:01:27 2018 +0000
+
+    modified for using -soft HEAD
+
+commit 7d45fe159b9a5d6df51e3a2336a28f6c7a14065e
+Author: KnowledgeShare <knowledgeshare99@gmail.com>
+Date:   Tue Nov 27 14:33:55 2018 +0000
+
+    adding commiting area 3rd time
+
+commit 87c8eda8f0d5e18e9e1cd2864e3f5a1bca6cdebc
+Author: knowledgeshare99 <32073408+knowledgeshare99@users.noreply.github.com>
+Date:   Sat Aug 11 16:53:45 2018 +0530
+
+    sample.war file adding for tomcat deploy
+
+    sample.war file adding for tomcat deploy
+
+commit 60a1031a3a8755feb333e3e8905bd74d0c123221
+Author: knowledgeshare99 <32073408+knowledgeshare99@users.noreply.github.com>
+Date:   Sat Oct 28 05:15:37 2017 -0500
+
+    this is first file
+
+    adding new file in github
+
+commit 9f5d418bb3f0fc0ca6a1c9e250ffee3f1eaa7467
+Author: knowledgeshare99 <32073408+knowledgeshare99@users.noreply.github.com>
+Date:   Sat Oct 28 05:13:30 2017 -0500
+
+    Initial commit
+[root@ip-10-0-1-162 samplerepo]#
